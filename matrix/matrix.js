@@ -8,6 +8,7 @@ function Matrix(input) {
       this.rows[i][j] = parseInt(this.rows[i][j]);
     }
   };
+  
   var column = [];
   var j = 0;
   while (j < this.rows[0].length){
