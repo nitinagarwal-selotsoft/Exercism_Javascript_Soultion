@@ -3,6 +3,7 @@ var SpaceAge = function(age){
     this.seconds = age;
 
 };
+
 SpaceAge.prototype.onEarth = function(){
   var ageOnEarth =  (this.seconds/31557600).toFixed(2);
   return parseFloat(ageOnEarth);
