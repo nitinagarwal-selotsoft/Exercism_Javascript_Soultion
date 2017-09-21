@@ -1,7 +1,12 @@
-//WIP
+
 var SpaceAge = function(age){
     this.seconds = age;
 
+};
+
+SpaceAge.prototype.onMercury = function(){
+    var inSeconds = 0.2408467*365.25*24*60*60;
+return parseFloat((this.seconds/inSeconds).toFixed(2));
 };
 
 SpaceAge.prototype.onEarth = function(){
@@ -36,11 +41,5 @@ SpaceAge.prototype.onNeptune = function(){
     var inSeconds = 164.79132*365.25*24*60*60;
     return parseFloat((this.seconds/inSeconds).toFixed(2));
 };
-
-
-
-
-
-
 
 module.exports = SpaceAge;
