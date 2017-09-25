@@ -1,8 +1,9 @@
-var Triangle = function(input){
+ /** 
+  * var Triangle = function(input){
     var n = input;
-    this.rows = [];
+    this.rows = {};
     this.lastRow = [];
- /**   if(n == 1){
+  if(n == 1){
         this.rows[0] = [1];
     } else if(n == 2){
         this.rows[0] = [1];
@@ -50,7 +51,7 @@ var Triangle = function(input){
         }**/
 
         
-        for(var row = 0; row < n; row++ ){
+    /**    for(var row = 0; row < n; row++ ){
             this.rows[row] = [];
             for(var col = 0;col < row+1; col++){
                 if(col === 0 || col === row){
@@ -61,7 +62,8 @@ var Triangle = function(input){
                 }
                 
             }
-        }
+        } 
+        
            
 };
 
@@ -72,5 +74,31 @@ Triangle.prototype.undef = function(input){
     }
 };
 
+
+module.exports = Triangle; **/
+
+
+var Triangle = function(nRows) {
+	/* Builds Pascals Triangle */
+	this.rows = [];
+	var row = [1];
+	for(var i = 0; i < nRows; i++ ) {
+		this.rows.push(row);
+		this.lastRow = row;
+		row = next_row(row);
+	}
+}
+
+function next_row(current_row) {
+	/* Builds the next row of Pascals Triangle */
+	var row = []; 
+	var prev = 0;
+	for(var j = 0; j < current_row.length; j++) {
+		row.push(current_row[j] + prev);
+		prev = current_row[j];
+	}
+	row.push(prev);
+	return row;
+}
 
 module.exports = Triangle;
